@@ -1,14 +1,18 @@
 .numbers {
+	& .title {
+		display: none;
+	}
+
 	&__content {
 		--expanded: 593px;
 		--collapsed-min: 100px;
+		--overlap: 5px;
 		--slide-dur: .5s;
 		--fade-dur: .8s;
 
 		display: flex;
-		border: 1px solid rgba(15, 15, 15, .3);
 		border-radius: 5px;
-		background: #f6f6f6;
+		background: var(--accent-light);
 		overflow: hidden;
 		position: relative;
 		contain: layout paint;
@@ -30,6 +34,7 @@
 		}
 
 		&__card {
+			overflow: hidden;
 			position: relative;
 			cursor: pointer;
 			display: grid;
@@ -40,11 +45,14 @@
 			border-radius: 5px;
 			min-width: 0;
 			transition: flex-basis var(--slide-dur) ease, transform .3s ease;
+			flex: 1 1 calc((100% + var(--overlap) * (var(--count) - 1)) / var(--count));
+			margin-left: calc(-1 * var(--overlap));
 
 			flex: 0 0 auto;
 
 			&:first-child {
 				flex-basis: var(--expanded);
+				margin-left: 0;
 			}
 
 			&:not(:first-child) {
