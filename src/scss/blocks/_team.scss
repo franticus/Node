@@ -1,0 +1,238 @@
+.team {
+	font-family: var(--font-accent);
+	background-color: var(--accent-dark);
+	color: var(--text-color);
+
+	.accordeon {
+		background-color: var(--accent);
+		padding-bottom: 0;
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+
+		&__item {
+			grid-column: 1 / -1;
+			display: flex;
+			flex-direction: column;
+			font-weight: 400;
+			font-size: 16px;
+			line-height: 120%;
+			letter-spacing: -0.04em;
+
+			@include mobile {
+				font-size: 14px;
+			}
+
+			&__top {
+				cursor: pointer;
+				display: grid;
+				grid-template-columns: repeat(4, 1fr);
+				color: rgba(42, 42, 42, 0.8);
+				background-color: var(--accent-dark);
+				padding: 20px 0;
+				border-bottom: 1px solid rgba(42, 42, 42, 0.3);
+
+				max-height: 64px;
+				opacity: 1;
+				overflow: hidden;
+				transition: max-height 0.35s ease, opacity 0.25s ease;
+
+				@include mobile {
+					padding: 15px 0;
+					grid-template-columns: repeat(2, 1fr);
+					max-height: 100px;
+				}
+
+				&__nick {
+					color: rgba(42, 42, 42, 0.8);
+					font-size: 18px;
+					grid-column: 1;
+					white-space: nowrap;
+
+					@include mobile {
+						font-size: 14px;
+						grid-column: 1 / -1;
+						grid-row: 1;
+					}
+				}
+
+				&__old {
+					color: rgba(42, 42, 42, 0.8);
+					font-size: 18px;
+					grid-column: 2;
+					grid-row: 1;
+					justify-self: start;
+
+					@include mobile {
+						font-size: 14px;
+						grid-column: 1 / -1;
+						grid-row: 2;
+					}
+				}
+
+				&__name {
+					font-size: 20px;
+					font-family: var(--font-accent);
+					font-weight: 500;
+					grid-column: 3;
+					color: #2a2a2a;
+
+					@include mobile {
+						grid-column: 1 / -1;
+						font-size: 18px;
+						grid-row: 3;
+						font-size: 18px;
+						margin-top: 10px;
+					}
+				}
+
+				&__plus {
+					grid-column: 4;
+					justify-self: end;
+					width: 23px;
+					height: 23px;
+
+					@include mobile {
+						grid-column: 1 / -1;
+						grid-row: 1;
+						justify-self: end;
+						width: 16px;
+						height: 16px;
+						transform: scale(1.4) translate(-4px, 4px);
+					}
+				}
+			}
+
+			&__main {
+				overflow: hidden;
+				height: 0;
+				transition: height 0.35s ease;
+			}
+
+			&__header {
+				display: grid;
+				grid-template-columns: repeat(4, 1fr);
+				justify-content: space-between;
+				align-items: flex-start;
+				cursor: pointer;
+				padding: 20px;
+				margin-bottom: 60px;
+
+				@include tablet {
+					margin-bottom: 20px;
+				}
+
+				@include mobile {
+					grid-template-columns: repeat(2, 1fr);
+					padding: 15px;
+				}
+
+				&__nick {
+					white-space: nowrap;
+
+					@include tablet {
+						white-space: normal;
+						padding-right: 20px;
+					}
+
+					@include mobile {
+						grid-column: 1 / -1;
+						grid-row: 1;
+					}
+				}
+
+				&__old {
+					grid-column: 2;
+					grid-row: 1;
+					justify-self: start;
+					margin-left: -10px;
+
+					@include mobile {
+						grid-column: 1 / -1;
+						grid-row: 2;
+						margin-left: 0px;
+					}
+				}
+
+				&__img {
+					grid-column: 2;
+					grid-row: 1;
+					justify-self: end;
+					width: 100%;
+					max-width: 180px;
+					padding-right: 20px;
+
+					@include tablet {
+						padding-top: 30px;
+						max-width: 270px;
+					}
+
+					@include mobile {
+						grid-column: 1 / -1;
+						grid-row: 3;
+						justify-self: start;
+						padding-top: 10px;
+						padding-bottom: 10px;
+						padding-right: 0px;
+						max-width: 100%;
+					}
+				}
+
+				&__text {
+					grid-column: 3;
+					max-width: 300px;
+
+					@include mobile {
+						grid-column: 1 / -1;
+						grid-row: 4;
+						max-width: 100%;
+					}
+				}
+
+				&__cross {
+					grid-column: 4;
+					justify-self: end;
+					width: 23px;
+					height: 23px;
+
+					@include mobile {
+						grid-column: 1 / -1;
+						grid-row: 1;
+						justify-self: end;
+						width: 16px;
+						height: 16px;
+						transform: scale(1.4);
+					}
+				}
+			}
+
+			&__content {
+				position: relative;
+				display: flex;
+				align-items: center;
+				pointer-events: none;
+				justify-content: center;
+				margin: 0 auto;
+				font-weight: 400;
+				font-size: 200px;
+				line-height: 120%;
+				font-family: var(--font-third);
+				white-space: nowrap;
+				border-bottom: 1px solid rgba(42, 42, 42, 0.3);
+
+				@include tablet {
+					font-size: 100px;
+				}
+
+				@include tablet {
+					font-size: 40px;
+				}
+			}
+		}
+	}
+
+	.accordeon__item.is-open .accordeon__item__top {
+		max-height: 0;
+		opacity: 0;
+		padding: 0;
+	}
+}
