@@ -7,39 +7,23 @@
 .icon {
 	fill: transparent;
 	stroke: transparent;
-	width: 24px;
-	height: 24px;
+	// width: 24px;
+	// height: 24px;
 }
 
-.icon--plus {
+.icon--logo_xbox,
+.icon--logo_playstation,
+.icon--logo_steam,
+.icon--logo_nintendo,
+.icon--logo_epic,
+.icon--logo_ubisoft {
+	stroke: var(--page-bg);
 	fill: var(--text-color-dark);
-	width: 16px;
-	height: 26px;
+	// width: 100%;
+	// height: auto;
 
 	@include mobile {
-		width: 40px;
-		height: 40px;
-	}
-}
-
-.icon--cross {
-	fill: var(--text-color);
-	width: 16px;
-	height: 26px;
-
-	@include mobile {
-		width: 40px;
-		height: 40px;
-	}
-}
-
-.icon--arrow {
-	fill: var(--text-color);
-	width: 20px;
-	transition: all 0.3s ease-in-out;
-	pointer-events: none;
-
-	@include mobile {
-		width: 20px;
+		// width: 40px;
+		// height: 40px;
 	}
 }
