@@ -12,11 +12,9 @@
 	&__content {
 		display: flex;
 		justify-content: space-between;
-		gap: 60px;
 		background-color: #f6f6f6;
 		border: 1px solid rgba(15, 15, 15, 0.3);
 		border-radius: 5px;
-		padding: 30px;
 
 		@include mobile {
 			flex-direction: column;
@@ -28,6 +26,7 @@
 			width: 50%;
 			max-width: 700px;
 			border-radius: 5px;
+			padding: 30px;
 
 			@include mobile {
 				width: 100%;
@@ -41,8 +40,11 @@
 			flex-direction: column;
 			justify-content: space-between;
 			width: 50%;
+			padding: 30px;
+			border-left: 1px solid rgba(15, 15, 15, 0.3);
 
 			@include mobile {
+				border-left: none;
 				border-top: 1px solid rgba(15, 15, 15, 0.3);
 				padding-top: 15px;
 				width: 100%;

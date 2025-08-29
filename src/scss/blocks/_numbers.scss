@@ -17,6 +17,11 @@
 		position: relative;
 		contain: layout paint;
 
+		@include tablet {
+			--expanded: 450px;
+		}
+
+		/* порядок слоёв для нахлёста слева→направо */
 		&__card:nth-child(1) {
 			z-index: 4;
 		}
@@ -45,7 +50,8 @@
 			border-radius: 5px;
 			min-width: 0;
 			transition: flex-basis var(--slide-dur) ease, transform .3s ease;
-			flex: 1 1 calc((100% + var(--overlap) * (var(--count) - 1)) / var(--count));
+
+			/* нахлёст на больших брейкпоинтах */
 			margin-left: calc(-1 * var(--overlap));
 
 			flex: 0 0 auto;
@@ -68,12 +74,24 @@
 				color: var(--accent-light);
 				white-space: nowrap;
 
+				@include tablet {
+					font-size: 100px;
+				}
+
+				@include mobile {
+					font-size: 150px;
+				}
+
 				span {
 					display: block;
 					font-size: clamp(20px, 4vw, 70px);
 					line-height: 70%;
 					margin-top: 10px;
 					white-space: normal;
+
+					@include mobile {
+						font-size: 30px;
+					}
 				}
 			}
 
@@ -86,6 +104,10 @@
 				opacity: 1;
 				padding-right: 70px;
 				transition: opacity var(--fade-dur) ease-in-out;
+
+				@include tablet {
+					padding-right: 40px;
+				}
 			}
 
 			&.dark {
@@ -105,6 +127,7 @@
 			}
 		}
 
+		/* по умолчанию (на больших) — скрываем описание у всех, кроме первой */
 		&__card:not(:first-child) {
 			grid-template-columns: 0fr auto;
 
@@ -114,6 +137,7 @@
 			}
 		}
 
+		/* режим аккордеона — управляется JS-классами на больших */
 		&.is-hover {
 			>.numbers__content__card {
 				grid-template-columns: 0fr auto;
@@ -133,10 +157,46 @@
 				.numbers__content__card-description {
 					opacity: 1;
 					padding-right: 70px;
+
+					@include tablet {
+						padding-right: 40px;
+					}
 				}
 			}
 		}
 
+		/* tablet_small: все открыты, без нахлёстов, без ховеров/анимаций, колонкой с gap */
+		@include tablet_small {
+			--overlap: 0px;
+			flex-direction: column;
+			gap: 10px;
+			transition: none;
+
+			&,
+			&.is-hover {
+
+				>.numbers__content__card,
+				>.numbers__content__card.is-active {
+					margin-left: 0;
+					cursor: default;
+					z-index: auto;
+					flex-basis: 100% !important;
+					width: 100%;
+					height: auto;
+					grid-template-columns: 1fr auto;
+					/* все открыты */
+					transition: none;
+
+					.numbers__content__card-description {
+						opacity: 1;
+						padding-right: 0;
+						transition: none;
+					}
+				}
+			}
+		}
+
+		/* доп. mobile — остаётся открытым и колонкой */
 		@include mobile {
 			flex-direction: column;
 
