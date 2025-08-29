@@ -14,7 +14,7 @@
 		background-repeat: no-repeat;
 
 		@include mediaBg() {
-			background-image: url('../../img/hero/hero@2x.jpg');
+			background-image: url('../../img/hero/hero_bg@2x.png');
 		}
 
 		@include mobile {
