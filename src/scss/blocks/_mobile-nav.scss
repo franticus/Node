@@ -11,9 +11,9 @@
 
 	display: flex;
 	flex-direction: column;
-	align-items: flex-start;
-	justify-content: flex-start;
-	background: var(--accent);
+	align-items: center;
+	justify-content: center;
+	background: var(--accent-light);
 	transition: all 0.2s ease-in;
 
 	.border_wrapper {
@@ -49,6 +49,8 @@
 .mobile-nav li {
 	width: 100%;
 	display: flex;
+	align-items: center;
+	justify-content: center;
 
 	&:first-child {
 		border-top: none;
@@ -60,25 +62,7 @@
 }
 
 .mobile-nav li {
-	border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-.mobile-nav__list li a {
-	font-weight: 500;
-	font-size: 20px;
-	line-height: 110%;
-	letter-spacing: -0.04em;
-	text-transform: uppercase;
-	color: var(--accent-dark);
-
-	&:hover {
-		background-color: var(--accent);
-		color: var(--text-color);
-	}
-
-	@include mobile {
-		font-size: 16px;
-	}
+	// border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .mobile-nav__list {
@@ -86,9 +70,8 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	font-size: 28px;
 	margin-top: 80px;
-	border: 1px solid rgba(255, 255, 255, 0.3);
+	// border: 1px solid rgba(255, 255, 255, 0.3);
 
 	// & li:first-child {
 	// 	border-top: 1px solid rgba(255, 255, 255, 0.3);
