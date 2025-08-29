@@ -2,30 +2,26 @@
 	display: flex;
 	align-items: center;
 	// padding: 15px 0;
-	// height: 80px;
+	height: 85px;
 	padding-bottom: 0;
 	font-family: var(--font-accent);
 	position: relative;
 	z-index: 99;
 
+	@include mobile {
+		height: 55px;
+	}
+
 	.container {
-		border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-
-		@include tablet {
-			border: none;
-		}
-
 		@include mobile {
 			padding: 0 10px;
 		}
 	}
 
-
 	&__row {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		// padding-bottom: 20px;
 	}
 }
 
@@ -36,23 +32,13 @@
 	color: var(--text-color);
 	position: relative;
 	z-index: 999;
-	width: 141px;
-	min-width: 141px;
+	width: 78px;
+	min-width: 78px;
 	border: 1px solid rgba(255, 255, 255, 0.3);
-	padding: 16px 20px;
 
 	@include tablet {
 		border: none;
 		padding: 0;
 		margin: 10px 0;
-	}
-
-	@include mobile {
-		width: 101px;
-		min-width: 101px;
-	}
-
-	& img {
-		width: 100%;
 	}
 }

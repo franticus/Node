@@ -27,7 +27,7 @@
 .nav-icon {
 	position: relative;
 	width: var(--width);
-	background-color: var(--page-bg);
+	background-color: var(--text-color-dark);
 	height: var(--line-height);
 	border-radius: var(--radius);
 }
@@ -44,7 +44,7 @@
 	height: var(--line-height);
 
 	border-radius: var(--radius);
-	background-color: var(--page-bg);
+	background-color: var(--text-color-dark);
 	transition: transform var(--time) ease-in,
 		top var(--time) linear var(--time);
 }
@@ -66,7 +66,7 @@
 .nav-icon.nav-icon--active::before,
 .nav-icon.nav-icon--active::after {
 	top: 0;
-	background-color: var(--page-bg);
+	background-color: var(--text-color-dark);
 	transition: top var(--time) linear,
 		transform var(--time) ease-in var(--time);
 }
