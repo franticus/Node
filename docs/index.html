@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Trickster — Learn Skateboarding Smarter</title>
+    <title>Node</title>
     <meta
       name="description"
       content="Master skateboarding with Trickster — your interactive learning app. Watch tutorials, practice tricks, track progress and become a pro skater step by step."
@@ -21,19 +21,20 @@
     <header class="header">
       <div class="container">
         <div class="header__row">
+          <a href="index.html" class="header__logo header__logo--black"><img src="./img/logo/logo.svg" alt="logo"/></a>
           <nav class="header__nav nav">
             <ul class="nav__list">
-              <li><a href="index.html#about" class="nav__link nav__link-first">About</a></li>
-              <li><a href="index.html#how" class="nav__link nav__link-third">How it works</a></li>
-              <li><a href="index.html#whyus" class="nav__link nav__link-second">Why us</a></li>
+              <li><a href="index.html#about" class="nav__link nav__link-first">About us</a></li>
+              <li><a href="index.html#games" class="nav__link nav__link-third">Games</a></li>
+              <li><a href="index.html#news" class="nav__link nav__link-second">News</a></li>
+              <li><a href="index.html#partners" class="nav__link nav__link-fourth">Partners</a></li>
+              <li><a href="index.html#contacts" class="nav__link nav__link-fourth">Contacts</a></li>
             </ul>
           </nav>
-          <a href="index.html" class="header__logo header__logo--black"><img src="./img/logo/logo.svg" alt="logo"/></a>
           <nav class="header__nav header__nav-right nav">
             <ul class="nav__list">
-              <li><a href="index.html#contacts" class="nav__link nav__link-fourth">Contacts</a></li>
               <li>
-                <a href="#!" class="nav__link"><span class="nav__btn-text">Get the app</span></a>
+                <a href="#!" class="nav__link"><span class="nav__btn-text">Get the game</span></a>
               </li>
             </ul>
           </nav>
@@ -47,13 +48,13 @@
         <div class="border_wrapper">
           <ul class="mobile-nav__list">
             <li><a href="index.html#about" class="nav__link active">About us</a></li>
-            <li><a href="index.html#how" class="nav__link">How it works</a></li>
-            <li><a href="index.html#whyus" class="nav__link">Why us</a></li>
+            <li><a href="index.html#games" class="nav__link">Games</a></li>
+            <li><a href="index.html#news" class="nav__link">News</a></li>
+            <li><a href="index.html#partners" class="nav__link">Partners</a></li>
             <li><a href="index.html#contacts" class="nav__link">Contacts</a></li>
-            <li><a href="#!" class="nav__link">Get the App</a></li>
+            <li><a href="#!" class="nav__link">Get the game</a></li>
           </ul>
         </div>
-        <img class="mobile-nav__skate" src="./img/skate/skate_mobile.svg" alt="skater" />
       </div>
     </div>
     <main class="docs">
@@ -65,62 +66,59 @@
       </div>
       <section class="hero">
         <div class="container">
-          <h1 class="hero__title">perfect your skateboarding skills</h1>
+          <h1 class="hero__title">Download, play, enjoy</h1>
           <div class="hero__lines">
             <div class="hero__lines-left">
-              <div class="hero__lines-text">Ollie</div>
-              <div class="hero__lines-text">Wallride</div>
-              <div class="hero__lines-text">Grind</div>
+              <picture
+                ><source srcset="./img/hero/hero_1.webp 1x, ./img/hero/hero_1@2x.webp 2x" type="image/webp"/>
+                <source srcset="./img/hero/hero_1.webp 1x, ./img/hero/hero_1@2x.webp 2x" type="image/png"/>
+                <img class="hero__lines-left-1" src="./img/hero/hero_1.webp" srcset="./img/hero/hero_1@2x.webp" alt="Alt"
+              /></picture>
             </div>
-            <div class="hero__line"></div>
+            <div class="hero__line">
+              <picture
+                ><source srcset="./img/hero/hero_2.webp 1x, ./img/hero/hero_2@2x.webp 2x" type="image/webp"/>
+                <source srcset="./img/hero/hero_2.webp 1x, ./img/hero/hero_2@2x.webp 2x" type="image/png"/>
+                <img src="./img/hero/hero_2.webp" srcset="./img/hero/hero_2@2x.webp" alt="Alt"
+              /></picture>
+            </div>
             <div class="hero__lines-right">
-              <div class="hero__lines-text">Shove-it</div>
-              <div class="hero__lines-text">Tailslide</div>
-              <div class="hero__lines-text">Kickflip</div>
+              <picture
+                ><source srcset="./img/hero/hero_3.webp 1x, ./img/hero/hero_3@2x.webp 2x" type="image/webp"/>
+                <source srcset="./img/hero/hero_3.webp 1x, ./img/hero/hero_3@2x.webp 2x" type="image/png"/>
+                <img src="./img/hero/hero_3.webp" srcset="./img/hero/hero_3@2x.webp" alt="Alt"
+              /></picture>
             </div>
           </div>
-          <p class="hero__text">Unlock the secrets of skateboarding with step-by-step tutorials, progress tracking, and a supportive community of skaters.</p>
-          <a href="#!" class="main__button secondary transparent"><span class="main__button-text">Get the App</span></a>
+          <p class="hero__text">
+            Discover a world of games across every platform, thoughtfully curated just for you. Whether you're a seasoned player or just starting out, we've got
+            something that will speak to your gaming soul.
+          </p>
+          <a href="#!" class="main__button"><span class="main__button-text">Get the game</span></a>
         </div>
       </section>
       <section class="about" id="about">
         <div class="container">
           <div class="title__wrapper">
             <p class="subtitle"><span>About us</span></p>
-            <h2 class="title">Our mission: to make skateboarding accessible to everyone — because every skater deserves a chance to shine</h2>
+            <h2 class="title"></h2>
           </div>
-        </div>
-        <div class="about__text">
-          <div class="about__text-1">
-            At Trickster, we believe that skateboarding is more than just a sport — it’s a lifestyle. Our team of passionate skaters, trainers, and developers
-            has created a platform that makes learning tricks simple, fun, and rewarding.
-          </div>
-          <div class="about__text-2">
-            Whether you’re a beginner trying your first ollie or an advanced skater mastering kickflips, our app is designed to support your journey. Join
-            thousands of skaters who trust Trickster to help them grow their skills and confidence on the board.
-          </div>
-        </div>
-        <div class="about__slider">
-          <div class="about__slider__item">
-            <picture
-              ><source srcset="./img/about/aabout_1.webp 1x, ./img/about/aabout_1@2x.webp 2x" type="image/webp"/>
-              <source srcset="./img/about/aabout_1.webp 1x, ./img/about/aabout_1@2x.webp 2x" type="image/jpeg"/>
-              <img src="./img/about/aabout_1.webp" srcset="./img/about/aabout_1@2x.webp" alt="about"
-            /></picture>
-          </div>
-          <div class="about__slider__item">
-            <picture
-              ><source srcset="./img/about/aabout_2.webp 1x, ./img/about/aabout_2@2x.webp 2x" type="image/webp"/>
-              <source srcset="./img/about/aabout_2.webp 1x, ./img/about/aabout_2@2x.webp 2x" type="image/jpeg"/>
-              <img src="./img/about/aabout_2.webp" srcset="./img/about/aabout_2@2x.webp" alt="about"
-            /></picture>
-          </div>
-          <div class="about__slider__item">
-            <picture
-              ><source srcset="./img/about/aabout_3.webp 1x, ./img/about/aabout_3@2x.webp 2x" type="image/webp"/>
-              <source srcset="./img/about/aabout_3.webp 1x, ./img/about/aabout_3@2x.webp 2x" type="image/jpeg"/>
-              <img src="./img/about/aabout_3.webp" srcset="./img/about/aabout_3@2x.webp" alt="about"
-            /></picture>
+          <div class="about__content">
+            <div class="about__content__img">
+              <picture
+                ><source srcset="./img/about/about.webp 1x, ./img/about/about@2x.webp 2x" type="image/webp"/>
+                <source srcset="./img/about/about.webp 1x, ./img/about/about@2x.webp 2x" type="image/jpeg"/>
+                <img src="./img/about/about.webp" srcset="./img/about/about@2x.webp" alt="about"
+              /></picture>
+            </div>
+            <div class="about__content__text">
+              <div class="about__content__text-title">At Node, we’re more than just developers — we’re storytellers, dreamers, and gamers at heart.</div>
+              <div class="about__content__text-description">
+                Founded by a team of industry veterans with decades of combined experience, we’ve dedicated ourselves to creating games that inspire and
+                entertain. Whether it’s a small indie project or a blockbuster title, we pour our creativity and expertise into every pixel, ensuring each game
+                resonates with players around the globe.
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -293,50 +291,42 @@
           </div>
         </div>
       </section>
-      <section class="why" id="whyus">
+      <section class="partners" id="partnersus">
         <div class="container">
           <div class="title__wrapper">
-            <p class="subtitle"><span>Why us</span></p>
+            <p class="subtitle"><span>Our partners</span></p>
             <h2 class="title">
-              Your ultimate<br class="desktopOnly" />
-              skateboarding companion
+              These partnerships allow us to stay at<br />
+              the forefront of technology and trends.
             </h2>
           </div>
-          <img class="card__skater outer" src="./img/skate/skater_black.svg" alt="skater" />
           <div class="cards">
             <div class="card__wrapper first">
               <div class="card">
-                <div class="card__title">video tutorials</div>
-                <div class="card__text">Master skateboarding at your own pace with detailed video guides designed for beginners to advanced skaters.</div>
+                <svg class="icon icon--logo_xbox"><use href="./img/svgsprite/sprite.symbol.svg#logo_xbox"></use></svg>
               </div>
             </div>
             <div class="card__wrapper second">
               <div class="card">
-                <div class="card__title">Progress tracking</div>
-                <div class="card__text">Track your growth with a built-in progress dashboard that highlights your achievements and areas for improvement.</div>
+                <svg class="icon icon--logo_nintendo"><use href="./img/svgsprite/sprite.symbol.svg#logo_nintendo"></use></svg>
               </div>
             </div>
             <div class="card__wrapper third">
-              <img class="card__skater inner" src="./img/skate/skater_black.svg" alt="skater" />
-              <div class="card">
-                <div class="card__title">Personalized trick recommendations</div>
-                <div class="card__text">
-                  Receive tailored trick suggestions that align with your skill level and aspirations, helping you focus on what matters most.
-                </div>
-              </div>
+              <div class="card"><img class="icon" src="./img/partners/logo_epic.svg" alt="epic" /></div>
             </div>
             <div class="card__wrapper fourth">
               <div class="card">
-                <div class="card__title">Community challenges</div>
-                <div class="card__text">
-                  Join fun, interactive challenges with skaters worldwide to keep your energy high and measure your skills against others.
-                </div>
+                <svg class="icon icon--logo_playstation"><use href="./img/svgsprite/sprite.symbol.svg#logo_playstation"></use></svg>
               </div>
             </div>
             <div class="card__wrapper fifth">
               <div class="card">
-                <div class="card__title">Offline mode</div>
-                <div class="card__text">Access tutorials anytime, anywhere — even without an internet connection — so you can practice wherever you are.</div>
+                <svg class="icon icon--logo_ubisoft"><use href="./img/svgsprite/sprite.symbol.svg#logo_ubisoft"></use></svg>
+              </div>
+            </div>
+            <div class="card__wrapper sixth">
+              <div class="card">
+                <svg class="icon icon--logo_steam"><use href="./img/svgsprite/sprite.symbol.svg#logo_steam"></use></svg>
               </div>
             </div>
           </div>
@@ -420,76 +410,57 @@
           </div>
         </div>
       </section>
+      <section class="form container" id="form">
+        <h2 class="form__title">
+          <div class="rect rect-top-left"></div>
+          <div class="rect rect-top-mid"></div>
+          <div class="rect rect-top-right"></div>
+          <p>Send us an email</p>
+          <div class="rect rect-bottom-left"></div>
+          <div class="rect rect-bottom-mid"></div>
+          <div class="rect rect-bottom-right"></div>
+        </h2>
+        <div class="text">Get in touch: we’re here to help! We’d love to hear from you.</div>
+        <form class="contact__form" action="../../php/thanks_form.php" method="post">
+          <input type="text" name="name" placeholder="Name" required /> <input type="email" name="email" placeholder="E-mail" required />
+          <input type="phone" name="phone" placeholder="Phone" required /><textarea name="message" placeholder="Message" required></textarea>
+          <div class="contact__form-text">
+            By clicking the "Send Message" button, you confirm your consent to the processing of personal data and agree to the
+            <a href="privacy-policy.html">privacy policy</a>
+          </div>
+          <button href="#!" class="form__btn" type="submit">
+            <div class="bars_left">
+              <div class="bar bar_8"></div>
+              <div class="bar bar_7"></div>
+              <div class="bar bar_6"></div>
+              <div class="bar bar_5"></div>
+            </div>
+            <span class="form__btn-text">Send the message</span>
+            <div class="bars_right">
+              <div class="bar bar_1"></div>
+              <div class="bar bar_2"></div>
+              <div class="bar bar_3"></div>
+              <div class="bar bar_4"></div>
+            </div>
+          </button>
+        </form>
+      </section>
       <footer class="footer">
-        <div class="builds">
-          <div class="pack pack-1">
-            <div class="build build-1"></div>
-            <div class="build build-2"></div>
-          </div>
-          <div class="build build-3"></div>
-          <div class="pack pack-2">
-            <div class="build build-4"></div>
-            <div class="build build-5"></div>
-          </div>
-          <div class="build build-6"></div>
-          <div class="build build-7"></div>
-        </div>
         <div class="container">
-          <div class="footer__header">
-            <div class="footer__subtitle">
-              <a href="index.html" class="footer__link footer__link-logo"><img src="./img/logo/logo.svg" alt="logo"/></a>
-            </div>
-            <div class="footer__title">
-              <div class="footer__title-part">Take your skateboarding</div>
-              <div class="footer__title-part">skills to the next level.</div>
-              <div class="footer__title-part">join the movement!</div>
-            </div>
-          </div>
           <div class="footer__links">
-            <div class="li_logo">
-              <div class="li_logo_text">
-                Have questions, feedback, or just want to say hello? Our team is always ready to assist you. Reach out to us via email, social media, or join
-                our community for exclusive updates and tips.
-              </div>
-              <form class="contact__form" action="php/thanks_form.php" method="post">
-                <input type="email" name="email" placeholder="E-mail" required autocomplete="on" />
-                <input type="text" name="message" placeholder="Message" required autocomplete="on" />
-                <div class="contact__form-text">
-                  <span
-                    >By clicking the "Send Message" button, you confirm your consent to the processing of personal data and agree to the
-                    <a href="privacy-policy.html">privacy policy</a></span
-                  >
-                </div>
-                <button class="main__button transparent"><span class="main__button-text">Send the message</span></button>
-              </form>
-            </div>
             <ul class="footer__links main">
-              <li><a href="https://www.facebook.com/" target="_blank" class="footer__link">[ Facebook ]</a></li>
-              <li><a href="https://www.instagram.com/" target="_blank" class="footer__link">[ Instagram ]</a></li>
-              <li>
-                <a href="index.html#about" class="footer__link">About</a
-                ><svg class="icon icon--arrow"><use href="./img/svgsprite/sprite.symbol.svg#arrow"></use></svg>
-              </li>
-              <li>
-                <a href="index.html#how" class="footer__link">How it works</a
-                ><svg class="icon icon--arrow"><use href="./img/svgsprite/sprite.symbol.svg#arrow"></use></svg>
-              </li>
-              <li>
-                <a href="index.html#whyus" class="footer__link">Why us</a
-                ><svg class="icon icon--arrow"><use href="./img/svgsprite/sprite.symbol.svg#arrow"></use></svg>
-              </li>
-              <li>
-                <a href="index.html#contacts" class="footer__link">Contacts</a
-                ><svg class="icon icon--arrow"><use href="./img/svgsprite/sprite.symbol.svg#arrow"></use></svg>
-              </li>
-              <li>
-                <a href="#!" class="footer__link">Get the app</a><svg class="icon icon--arrow"><use href="./img/svgsprite/sprite.symbol.svg#arrow"></use></svg>
-              </li>
+              <li><a href="index.html" class="footer__link footer__link-logo">SpinVibe.</a></li>
+              <li><a href="index.html#about" class="footer__link">About</a></li>
+              <li><a href="index.html#why" class="footer__link">Why us</a></li>
+              <li><a href="index.html#how" class="footer__link">How it works</a></li>
+              <li><a href="index.html#contacts" class="footer__link">Contacts</a></li>
+              <li><a href="#!" class="footer__link">Get the app</a></li>
+              <li><a href="privacy-policy.html" class="footer__link">Privacy policy</a></li>
+              <li><a href="https://www.facebook.com/" target="_blank" class="footer__link">Facebook</a></li>
+              <li><a href="https://www.instagram.com/" target="_blank" class="footer__link">Instagram</a></li>
             </ul>
           </div>
-          <div class="footer__copyright">
-            <span>© 2025 Trickster. All rights reserved.</span> <a href="privacy-policy.html" class="footer__link">Privacy policy</a>
-          </div>
+          <div class="footer__copyright">© 2025 SpinVibe. All rights reserved.</div>
         </div>
       </footer>
     </main>

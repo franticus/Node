@@ -1,81 +1,67 @@
 .about {
 	font-family: var(--font-accent);
-	background-color: var(--accent-dark);
 
-	&__text {
+	& .subtitle span {
+		margin-bottom: 0;
+	}
+
+	&__content {
 		display: flex;
-		justify-content: center;
-		margin: 0 auto;
-		margin-bottom: 30px;
-		gap: 20px;
-		font-weight: 400;
-		font-size: 16px;
-		line-height: 120%;
-		letter-spacing: -0.04em;
-		color: rgba(42, 42, 42, 0.8);
-		padding: 0px 10px;
-
-		&-1 {
-			max-width: 290px;
-
-			@include mobile {
-				max-width: 100%;
-			}
-		}
-
-		&-2 {
-			max-width: 290px;
-
-			@include mobile {
-				max-width: 100%;
-			}
-		}
+		justify-content: space-between;
+		gap: 60px;
+		background-color: #f6f6f6;
+		border: 1px solid rgba(15, 15, 15, 0.3);
+		border-radius: 5px;
+		padding: 30px;
 
 		@include mobile {
 			flex-direction: column;
-			gap: 5px;
-			font-size: 14px;
-			margin-bottom: 20px;
+			padding: 0px;
+			gap: 15px;
 		}
-	}
 
-	&__slider {
-		display: flex;
-		align-items: flex-start;
-		justify-content: center;
-		width: 100%;
-		max-width: 1600px;
-		margin: 0 auto;
-		overflow-x: scroll;
-		scroll-snap-type: x mandatory;
-		padding: 0 100px;
-		gap: 20px;
-
-		&__item {
-			flex: 0 0 auto;
-
-			& img {
-				width: 100%;
-				object-fit: cover;
-				flex: 0 0 auto;
-
-				@include mobile {
-					width: 100%;
-					height: 100%;
-					object-fit: cover;
-				}
-			}
+		&__img {
+			width: 50%;
+			max-width: 700px;
+			border-radius: 5px;
 
 			@include mobile {
-				width: 272px;
-				height: 317px;
+				width: 100%;
+				padding: 15px;
+				padding-bottom: 0;
 			}
 		}
 
-		@include mobile {
-			padding: 0 10px;
-			justify-content: flex-start;
-			gap: 10px;
+		&__text {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			width: 50%;
+
+			@include mobile {
+				border-top: 1px solid rgba(15, 15, 15, 0.3);
+				padding-top: 15px;
+				width: 100%;
+				padding: 15px;
+			}
+
+			&-title {
+				font-family: var(--font-second);
+				max-width: 559px;
+				font-weight: 400;
+				font-size: 30px;
+				line-height: 80%;
+				color: var(--text-color-dark);
+				margin-bottom: 10px;
+			}
+
+			&-description {
+				font-weight: 400;
+				font-size: 16px;
+				line-height: 110%;
+				letter-spacing: -0.04em;
+				color: rgba(15, 15, 15, 0.8);
+			}
 		}
 	}
 }
