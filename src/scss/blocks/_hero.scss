@@ -8,11 +8,9 @@
 
 	.container {
 		padding: 150px 100px 45px 100px;
-		background-color: var(--accent);
-		background-color: #999;
-		background-image: url('../../img/hero/hero.jpg');
+		background-image: url('../../img/hero/hero_bg.png');
 		background-position: center bottom;
-		background-size: cover;
+		background-size: 100% 100%;
 		background-repeat: no-repeat;
 
 		@include mediaBg() {
@@ -33,101 +31,70 @@
 			margin: 40px auto;
 		}
 
-		&-text {
-			font-weight: 500;
-			font-size: 18px;
-			line-height: 110%;
-			letter-spacing: -0.04em;
-			text-transform: uppercase;
-			color: rgba(255, 255, 255, 0.7);
-
-			@include mobile {
-				font-size: 12px;
-			}
-		}
-
-		&-text:nth-child(3) {
-			margin-right: 10px;
-		}
-
 		&-left {
 			display: flex;
 			flex-direction: column;
+			align-items: flex-start;
 			gap: 30px;
-			width: 25%;
+			transform: translateY(-40px);
 
-			& div:nth-child(1) {
-				text-align: left;
+			&-1 {
+				width: 240px;
 			}
 
-			& div:nth-child(2) {
-				text-align: center;
-			}
-
-			& div:nth-child(3) {
-				text-align: right;
+			@include mobile {
+				transform: translateY(0px);
 			}
 		}
 
 		&-right {
 			display: flex;
 			flex-direction: column;
+			align-items: flex-end;
 			gap: 30px;
-			width: 25%;
 
-			& div:nth-child(1) {
-				text-align: right;
-			}
+			transform: translateY(-90px);
 
-			& div:nth-child(2) {
-				text-align: center;
-			}
-
-			& div:nth-child(3) {
-				text-align: left;
-			}
-		}
-
-		&-left,
-		&-right {
 			@include mobile {
-				gap: 0;
+				transform: translateY(0px);
 			}
 		}
 	}
 
 	&__line {
-		height: 155px;
-		width: 1px;
-		background: rgba(255, 255, 255, 0.3);
 		transform: translateY(-40px);
 
 		@include mobile {
-			height: 115px;
 			transform: translateY(0px);
 		}
 	}
 
 	&__title {
-		font-weight: 700;
-		font-size: 120px;
-		line-height: 100%;
-		letter-spacing: -0.04em;
-		text-transform: uppercase;
+		font-family: var(--font-second);
+		font-weight: 400;
+		font-size: clamp(80px, 12vw, 200px);
+		line-height: 80%;
+		letter-spacing: -0.01em;
+		text-transform: capitalize;
 		text-align: center;
-		color: #fff;
-		color: var(--text-color);
-		margin: 0 auto;
-		margin-bottom: 80px;
-		max-width: 1300px;
+		color: var(--text-color-light);
+
+		-webkit-text-stroke: 2px var(--text-color-dark);
+		paint-order: stroke fill;
+
+		text-shadow: -10px -10px 0 #2400c9;
+
+		margin: 0 auto 80px;
+		white-space: nowrap;
 
 		@include tablet {
-			font-size: 80px;
+			font-size: 120px;
 			margin-bottom: 80px;
+			white-space: normal;
 		}
 
 		@include mobile {
-			font-size: 35px;
+			font-size: 80px;
 			margin-bottom: 20px;
 		}
 	}
@@ -136,7 +103,7 @@
 		font-weight: 400;
 		font-size: 16px;
 		line-height: 120%;
-		max-width: 300px;
+		max-width: 375px;
 		margin: 0 auto;
 		letter-spacing: -0.04em;
 		text-align: center;
