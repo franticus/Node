@@ -1,4 +1,8 @@
 .numbers {
+	& .subtitle span {
+		margin-bottom: 0;
+	}
+
 	& .title {
 		display: none;
 	}
@@ -108,6 +112,10 @@
 				@include tablet {
 					padding-right: 40px;
 				}
+
+				@include tablet_small {
+					margin-top: 35px;
+				}
 			}
 
 			&.dark {
@@ -170,6 +178,7 @@
 			--overlap: 0px;
 			flex-direction: column;
 			gap: 10px;
+			background: transparent;
 			transition: none;
 
 			&,
@@ -204,6 +213,9 @@
 				flex-basis: 100% !important;
 				height: auto;
 				grid-template-columns: 1fr;
+				display: flex;
+				flex-direction: column-reverse;
+				padding: 15px;
 
 				.numbers__content__card-description {
 					opacity: 1;
