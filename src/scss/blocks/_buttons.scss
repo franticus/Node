@@ -26,22 +26,14 @@
 		line-height: normal;
 	}
 
-	&:hover {
-		color: var(--text-color);
-		background-color: var(--accent-light);
-		// border: 1px solid var(--text-color);
-	}
+	&:hover {}
 
 	&.secondary {
 		color: var(--text-color-dark);
-		background-color: var(--page-bg);
+		background-color: var(--accent-light);
 		border: 1px solid var(--text-color);
 
-		&:hover {
-			color: var(--text-color);
-			background-color: var(--text-color-dark);
-			border: 1px solid var(--text-color);
-		}
+		&:hover {}
 	}
 
 	&.transparent {
