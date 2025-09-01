@@ -20,7 +20,7 @@
 		@include mobile {
 			padding: 45px 10px 10px 10px;
 			background-size: 100% 70%;
-			background-position: 100% 65%;
+			background-position: 100% 60%;
 		}
 	}
 
@@ -90,7 +90,7 @@
 		text-align: center;
 		color: var(--text-color-light);
 
-		-webkit-text-stroke: 2px var(--text-color-dark);
+		-webkit-text-stroke: 3px var(--text-color-dark);
 		paint-order: stroke fill;
 
 		text-shadow: -10px -10px 0 #2400c9;
@@ -105,6 +105,7 @@
 
 		@include mobile {
 			font-size: 80px;
+			text-shadow: -5px -5px 0 #2400c9;
 		}
 	}
 
