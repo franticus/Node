@@ -258,6 +258,13 @@
 		}
 	}
 
+	& .main__button {
+		@include mobile {
+			max-width: calc(100% - 20px);
+
+		}
+	}
+
 	@include tablet_small {
 		&__tags {
 			justify-content: start;

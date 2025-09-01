@@ -1,34 +1,43 @@
 export default function Pixels() {
-  (function() {
-    const btn = document.getElementById('getGameBtn');
-    if (!btn) return;
+  const buttons = Array.from(document.querySelectorAll('.main__button'));
+  if (!buttons.length) return;
 
-    const left = btn.querySelector('.px-emitter.left');
-    const right = btn.querySelector('.px-emitter.right');
+  const rand = (min, max) => Math.random() * (max - min) + min;
+  const pick = arr => arr[(Math.random() * arr.length) | 0];
 
-    let timers = [];
-    let hovered = false;
+  const state = new WeakMap();
 
-    const rand = (min, max) => Math.random() * (max - min) + min;
-    const pick = arr => arr[(Math.random() * arr.length) | 0];
+  function setup(btn) {
+    let left = btn.querySelector('.px-emitter.left');
+    let right = btn.querySelector('.px-emitter.right');
+    if (!left) {
+      left = document.createElement('span');
+      left.className = 'px-emitter left';
+      btn.appendChild(left);
+    }
+    if (!right) {
+      right = document.createElement('span');
+      right.className = 'px-emitter right';
+      btn.appendChild(right);
+    }
+
+    const s = { timers: [], hovered: false, left, right };
+    state.set(btn, s);
 
     function spawnPixel(emitterEl, side) {
       const px = document.createElement('span');
       px.className = 'px';
 
-      // размеры эмиттера и кнопки
-      const h = btn.clientHeight;
+      const h = btn.clientHeight - 5;
       const w = emitterEl.clientWidth || 14;
 
-      // случайные координаты старта внутри «широкой полосы» вдоль всей высоты
       const y = rand(2, h - 8);
-      const x = rand(-w + 2, 2); // немного внутрь/наружу от края
+      const x = rand(-w + 1, 1);
 
-      // тайминги и вариативность
       const dur = rand(350, 700);
       const delay = rand(0, 120);
-      const dy = pick([-10, -8, -6, -4, -2, 0, 2, 4, 6, 8, 10]); // небольшой вертикальный разлёт
-      const scale = pick([1, 1, 1, 2]); // иногда крупнее
+      const dy = pick([-10, -8, -6, -4, -2, 0, 2, 4, 6, 8, 10]);
+      const scale = pick([1, 1, 1, 2]);
 
       px.style.top = `${y}px`;
       px.style.left = `${x}px`;
@@ -38,46 +47,59 @@ export default function Pixels() {
         side === 'left' ? 'px-fly-left' : 'px-fly-right'
       } ${dur}ms linear ${delay}ms forwards`;
 
-      // легкий «шум» по цвету/краю
       if (Math.random() < 0.25)
-        px.style.boxShadow = '0 0 0 1px rgba(255,255,255,.08) inset';
+        px.style.boxShadow = '0 0 0 1px rgba(255,255,255,.1) inset';
 
       emitterEl.appendChild(px);
       px.addEventListener('animationend', () => px.remove(), { once: true });
     }
 
     function start() {
-      if (hovered) return;
-      hovered = true;
+      const st = state.get(btn);
+      if (!st || st.hovered) return;
+      st.hovered = true;
 
-      // базовые частоты спауна слева/справа
-      timers.push(setInterval(() => spawnPixel(left, 'left'), 40));
-      timers.push(setInterval(() => spawnPixel(right, 'right'), 40));
+      // Частоты спауна — можно переопределить data-атрибутами
+      const leftInt = Number(btn.dataset.pxIntervalLeft || 60);
+      const rightInt = Number(btn.dataset.pxIntervalRight || 60);
 
-      // случайные «всплески»
-      timers.push(
+      st.timers.push(setInterval(() => spawnPixel(st.left, 'left'), leftInt));
+      st.timers.push(
+        setInterval(() => spawnPixel(st.right, 'right'), rightInt)
+      );
+
+      // Всплески
+      st.timers.push(
         setInterval(() => {
-          if (!hovered) return;
+          if (!st.hovered) return;
           const burst = (em, side) => {
-            const n = 2 + ((Math.random() * 3) | 0);
-            for (let i = 0; i < n; i++)
+            const n = Number(btn.dataset.pxBurstMax || 5) - 0;
+            const min = Number(btn.dataset.pxBurstMin || 2);
+            const count = min + ((Math.random() * (n - min + 1)) | 0);
+            for (let i = 0; i < count; i++)
               setTimeout(() => spawnPixel(em, side), i * 28);
           };
-          Math.random() < 0.5 ? burst(left, 'left') : burst(right, 'right');
+          Math.random() < 0.5
+            ? burst(st.left, 'left')
+            : burst(st.right, 'right');
         }, 1200)
       );
     }
 
     function stop() {
-      hovered = false;
-      timers.forEach(clearInterval);
-      timers = [];
-      // оставшиеся пиксели удалятся сами по завершении анимации
+      const st = state.get(btn);
+      if (!st) return;
+      st.hovered = false;
+      st.timers.forEach(clearInterval);
+      st.timers = [];
+      // текущие пиксели удалятся сами по окончании анимации
     }
 
     btn.addEventListener('mouseenter', start);
     btn.addEventListener('mouseleave', stop);
     btn.addEventListener('focus', start);
     btn.addEventListener('blur', stop);
-  })();
+  }
+
+  buttons.forEach(setup);
 }

@@ -19,14 +19,31 @@
 	background-color: var(--accent-dark);
 	color: var(--text-color-light);
 	--btn-spark: var(--accent-dark);
+	transition: all 0.2s ease-in;
+
+	&:hover {
+		transform: translateY(-1px);
+	}
 
 	@include mobile {
-		max-width: 300px;
+		max-width: 100%;
 	}
 
 	&-text {
 		line-height: normal;
 	}
+
+	&.secondary {
+		background-color: var(--accent-light);
+		--btn-spark: var(--accent-light);
+		color: var(--text-color-dark);
+	}
+
+	&.transparent {
+		--btn-spark: var(--text-color);
+	}
+
+	--btn-spark: var(--accent-dark);
 
 	&.secondary {
 		--btn-spark: var(--accent-light);
@@ -36,9 +53,6 @@
 		--btn-spark: var(--text-color);
 	}
 
-	/* можно подстроить по вкусу */
-
-	/* эмиттеры по краям — высокая полоса */
 	.px-emitter {
 		position: absolute;
 		top: 0;
@@ -56,17 +70,21 @@
 		right: -10px;
 	}
 
-	/* сама «искра» */
 	.px {
 		position: absolute;
-		width: 5px;
-		height: 5px;
+		width: 6px;
+		height: 6px;
 		background: var(--btn-spark);
 		opacity: 0;
 		will-change: transform, opacity;
 		image-rendering: pixelated;
-		border-radius: 0;
-		box-shadow: 0 0 0 1px rgba(0, 0, 0, .06) inset;
+		box-shadow: 0 0 0 1px rgba(0, 0, 0, .1) inset;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.px {
+			animation: none !important;
+		}
 	}
 
 	@media (prefers-reduced-motion: reduce) {
@@ -76,7 +94,6 @@
 	}
 }
 
-/* ключевые кадры — вылет + растворение */
 @keyframes px-fly-left {
 	0% {
 		transform: translateX(0) translateY(0);
@@ -87,8 +104,12 @@
 		opacity: 1;
 	}
 
+	70% {
+		opacity: 1;
+	}
+
 	100% {
-		transform: translateX(-15px) translateY(var(--dy, 0));
+		transform: translateX(-10px) translateY(var(--dy, 0));
 		opacity: 0;
 	}
 }
@@ -103,8 +124,12 @@
 		opacity: 1;
 	}
 
+	70% {
+		opacity: 1;
+	}
+
 	100% {
-		transform: translateX(15px) translateY(var(--dy, 0));
+		transform: translateX(10px) translateY(var(--dy, 0));
 		opacity: 0;
 	}
 }
