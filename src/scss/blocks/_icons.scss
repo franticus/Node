@@ -19,11 +19,6 @@
 .icon--logo_ubisoft {
 	stroke: var(--page-bg);
 	fill: var(--text-color-dark);
-	// width: 100%;
-	// height: auto;
 
-	@include mobile {
-		// width: 40px;
-		// height: 40px;
-	}
+	@include mobile {}
 }
