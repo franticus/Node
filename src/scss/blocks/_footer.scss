@@ -17,6 +17,11 @@
 		max-width: 208px;
 		cursor: pointer;
 
+		@include mobile {
+			font-size: 14px;
+			margin-bottom: 5px;
+		}
+
 		&::after {
 			content: "";
 			position: absolute;
@@ -49,10 +54,18 @@
 			margin-bottom: 20px;
 			text-transform: uppercase;
 			color: var(--accent-light);
+
+			@include mobile {
+				font-size: 18px;
+				margin-bottom: 15px;
+			}
 		}
 	}
 
 	&__copyright {
+		position: absolute;
+		bottom: 20px;
+		left: 20px;
 		display: flex;
 		width: 100%;
 		font-weight: 400;
@@ -60,7 +73,11 @@
 		line-height: 100%;
 		letter-spacing: -0.04em;
 		color: rgba(255, 255, 255, 0.5);
-		margin-top: 140px;
+
+		@include mobile {
+			bottom: 10px;
+			left: 10px;
+		}
 	}
 
 	&__links {
@@ -86,6 +103,7 @@
 	}
 
 	& .border_wrapper {
+		position: relative;
 		padding-top: 60px;
 		border: 1px solid rgba(255, 255, 255, 0.3);
 		height: 295px;
@@ -100,6 +118,16 @@
 
 		&:last-child {
 			border-right: none;
+		}
+
+		@include mobile {
+			height: 174px;
+			padding-top: 35px;
+			padding-left: 10px;
+
+			&:not(:first-child) {
+				padding-left: 10px;
+			}
 		}
 	}
 
