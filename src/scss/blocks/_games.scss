@@ -8,6 +8,33 @@
 		margin: 0 auto;
 		margin-bottom: 60px;
 		width: calc(100% - 80px);
+
+		@include tablet_small {
+			grid-template-columns: repeat(1, 1fr);
+			width: calc(100% - 80px);
+			margin-bottom: 20px;
+		}
+
+		@include mobile {
+			width: calc(100% - 20px);
+		}
+	}
+
+	& .subtitle span {
+		@include tablet_small {
+			font-size: 30px;
+		}
+	}
+
+	& .title {
+		@include tablet_small {
+			margin-top: 20px;
+			grid-column: 1;
+		}
+
+		@include mobile {
+			margin-top: 0;
+		}
 	}
 
 	&__tags {
@@ -19,6 +46,10 @@
 		gap: 10px;
 		margin-bottom: 20px;
 
+		@include mobile {
+			width: calc(100% - 20px);
+		}
+
 		.tag {
 			display: inline-block;
 			align-items: center;
@@ -29,6 +60,11 @@
 			font-size: 16px;
 			line-height: 110%;
 			letter-spacing: -0.04em;
+
+			@include tablet_small {
+				font-size: 14px;
+				padding: 5px 10px;
+			}
 		}
 	}
 
@@ -40,7 +76,13 @@
 		height: 1px;
 		background-color: rgba(15, 15, 15, 0.3);
 		grid-column: 2/-1;
-		transform: translateY(-35%);
+
+		@include tablet_small {
+			top: 25px;
+			grid-column: 1;
+			left: 50%;
+			width: calc(100% + 90px);
+		}
 
 		&::after {
 			content: '';
@@ -51,17 +93,29 @@
 			height: 1px;
 			background-color: rgba(15, 15, 15, 0.3);
 			transform: rotate(50deg) translate(-49%, 0%);
+
+			@include tablet_small {
+				width: 40px;
+				left: -20px;
+			}
 		}
 
 		&::before {
 			content: '';
 			position: absolute;
 			top: 0;
-			left: -270px;
-			width: 308px;
+			left: -340px;
+			width: 377px;
 			height: 1px;
 			background-color: rgba(15, 15, 15, 0.3);
 			transform: translate(-101px, -76px);
+
+			@include tablet_small {
+				top: 0;
+				left: -330px;
+				width: 383px;
+				transform: translate(-78px, -30px);
+			}
 		}
 	}
 
@@ -73,9 +127,18 @@
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);
 		align-items: start;
+
+		@include tablet_small {
+			padding-top: 20px;
+		}
+
+		@include mobile {
+			width: calc(100% - 20px);
+		}
 	}
 
 	&__name {
+		grid-column: 1;
 		padding: 20px 0;
 		position: relative;
 		font-family: var(--font-second);
@@ -84,10 +147,21 @@
 		line-height: 80%;
 		color: var(--text-color-dark);
 		transform: translateY(-100%);
+
+		@include tablet_small {
+			font-size: 18px;
+			transform: translateY(-60%);
+		}
 	}
 
 	&__release {
+		grid-column: 2;
 		padding: 20px 0;
+
+		@include tablet_small {
+			text-align: right;
+		}
+
 
 		.label {
 			display: block;
@@ -97,6 +171,11 @@
 			letter-spacing: -0.04em;
 			color: var(--text-color-dark);
 			margin-bottom: 15px;
+
+			@include tablet_small {
+				font-size: 14px;
+				margin-bottom: 5px;
+			}
 		}
 
 		.date {
@@ -105,10 +184,16 @@
 			line-height: 110%;
 			letter-spacing: -0.04em;
 			color: rgba(15, 15, 15, 0.8);
+
+			@include tablet_small {
+				font-size: 14px;
+			}
 		}
 	}
 
 	&__description {
+		grid-column: 3 / -1;
+		grid-row: 1;
 		padding: 20px 0;
 		font-weight: 400;
 		font-size: 16px;
@@ -117,13 +202,26 @@
 		color: rgba(15, 15, 15, 0.8);
 		max-width: 270px;
 		margin-left: 8px;
+
+		@include tablet_small {
+			max-width: 185px;
+			margin-left: 0;
+			font-size: 14px;
+		}
 	}
 
 	&__images {
+		grid-column: 3 / -1;
+		grid-row: 1;
+		justify-self: end;
 		padding: 20px 0;
 		display: flex;
 		gap: 10px;
 		margin-left: -10px;
+
+		@media (max-width: 1400px) {
+			grid-row: 2;
+		}
 
 		img {
 			width: 90px;
@@ -134,55 +232,56 @@
 		}
 	}
 
-	@include mobile {
+	@include tablet_small {
 		&__tags {
-			margin: 8px 0 16px 0;
-			flex-wrap: wrap;
+			justify-content: start;
 		}
 
 		&__row {
 			display: grid;
 			grid-template-columns: 1fr auto;
 			grid-template-areas:
-				"name    release"
-				"desc    release"
-				"images  images";
-			gap: 12px 16px;
-			padding: 20px 0;
+				"name   ."
+				"desc   release"
+				"images images";
 		}
 
 		&__name {
 			grid-area: name;
-			font-size: 18px;
+			grid-row: 1;
 		}
 
 		&__release {
 			grid-area: release;
 			align-self: start;
-			font-size: 12px;
+			grid-row: 1;
 		}
 
 		&__description {
+			padding: 15px 0;
 			grid-area: desc;
-			font-size: 14px;
+			grid-row: 1;
 		}
 
 		&__images {
+			grid-row: 2;
+			width: 100%;
 			grid-area: images;
-			display: flex; // горизонтальная линия
-			gap: 8px;
-			overflow-x: auto; // горизонтальный скролл
-			-webkit-overflow-scrolling: touch; // плавный скролл на iOS
-			scrollbar-width: none; // скрыть скроллбар в Firefox
+			display: flex;
+			overflow-x: scroll;
+			-webkit-overflow-scrolling: touch;
+			scrollbar-width: none;
+			padding-top: 0;
 
 			&::-webkit-scrollbar {
 				display: none;
 			}
 
 			img {
-				flex: 0 0 auto; // не сжимать, фикс ширина
-				width: 150px; // можно задать 120–150px для превью
-				height: 100px;
+				width: 140px;
+				min-width: 140px;
+				height: 140px;
+				min-height: 140px;
 				object-fit: cover;
 				border-radius: 6px;
 			}
