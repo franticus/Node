@@ -3,15 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Thank You — Trickster</title>
+    <title>Thank You — Node</title>
     <meta
       name="description"
-      content="Thank you for joining Trickster! Start exploring tutorials, practice your tricks and track your skateboarding progress with our learning app."
+      content="Thank you for connecting with Node. Your request has been received — we’ll be in touch soon. Meanwhile, explore more games and experiences on our platform."
     />
-    <meta
-      name="keywords"
-      content="thank you Trickster, welcome Trickster, skateboarding learning app, start skateboarding, skateboarding tutorials, skateboard tricks"
-    />
+    <meta name="keywords" content="Node thank you, Node confirmation, request received, Node games, game platform, gaming community" />
     <link rel="stylesheet" href="./css/main.css" />
     <link rel="icon" type="image/x-icon" href="./img/favicons/favicon.webp" />
     <link rel="apple-touch-icon" sizes="180x180" href="./img/favicons/apple-touch-icon.webp" />
@@ -35,15 +32,16 @@
         height: 100vh;
         margin: 0;
         text-align: center;
-        background-color: #f97700;
+        background: url("../img/thanks/Union.webp") no-repeat;
+        background-position: center;
+        background-size: cover;
       }
 
       h1 {
-        font-family: var(--font-accent);
-        font-weight: 600;
-        font-size: 40px;
-        line-height: 110%;
-        letter-spacing: -0.04em;
+        font-family: var(--font-second);
+        font-weight: 400;
+        font-size: 70px;
+        line-height: 100%;
         text-transform: uppercase;
         text-align: center;
         color: var(--text-color-dark);
@@ -58,59 +56,29 @@
         letter-spacing: -0.04em;
         text-align: center;
         color: #59502c;
+        padding-bottom: 40px;
       }
 
       a {
         text-decoration: none;
       }
 
-      .border_wrapper {
-        width: calc(100% - 20px);
-        max-width: 469px;
-      }
-
-      .border {
-        border: 1px solid VAR(--TEXT-COLOR-DARK);
-        padding: 20px;
-      }
-
       @media (max-width: 768px) {
-        body {
-          border-radius: 30px;
-        }
-
         h1 {
-          font-size: 25px;
+          font-size: 30px;
         }
 
         p {
           font-size: 14px;
         }
-
-        .border_wrapper,
-        .border {
-          padding: 20px;
-        }
-      }
-
-      .thanks .main__button {
-        max-width: 250px;
-        background-color: var(--text-color);
-      }
-
-      .thanks .main__button:hover {
-        background-color: transparent;
-        color: var(--page-bg);
       }
     </style>
   </head>
   <body class="thanks">
-    <div class="border_wrapper">
-      <div class="border">
-        <h1>THANKS FOR SUBMITTING!</h1>
-        <p>Your message has been sent.</p>
-      </div>
+    <div class="border">
+      <h1>THANKS FOR SUBMITTING!</h1>
+      <p>Your message has been sent.</p>
     </div>
-    <a href="index.html" class="main__button secondary"><span class="main__button-text">Go home</span></a>
+    <a href="index.html" class="main__button"><span class="main__button-text">Go home</span></a>
   </body>
 </html>

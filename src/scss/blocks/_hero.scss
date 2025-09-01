@@ -70,6 +70,14 @@
 		@include mobile {
 			transform: translateY(-30px);
 		}
+
+		&-anim {
+			animation: upDown 3s infinite ease-in-out;
+			-webkit-animation: upDown 3s infinite ease-in-out;
+			-moz-animation: upDown 3s infinite ease-in-out;
+
+			animation-direction: alternate;
+		}
 	}
 
 	&__title {
