@@ -1,4 +1,9 @@
 .main__button {
+	position: relative;
+	/* якорь для искр */
+	isolation: isolate;
+	overflow: visible;
+
 	cursor: pointer;
 	display: flex;
 	align-items: center;
@@ -9,14 +14,11 @@
 	font-weight: 500;
 	font-size: 16px;
 	line-height: 100%;
-	text-transform: uppercase;
-	// border-radius: 100px;
-	color: var(--text-color-light);
-	background-color: var(--accent-dark);
-	// border: 1px solid var(--text-color-dark);
-	padding: 5px 10px;
 	height: 40px;
-	transition: all 0.2s ease-in;
+	text-transform: uppercase;
+	background-color: var(--accent-dark);
+	color: var(--text-color-light);
+	--btn-spark: var(--accent-dark);
 
 	@include mobile {
 		max-width: 300px;
@@ -26,25 +28,83 @@
 		line-height: normal;
 	}
 
-	&:hover {}
-
 	&.secondary {
-		color: var(--text-color-dark);
-		background-color: var(--accent-light);
-		border: 1px solid var(--text-color);
-
-		&:hover {}
+		--btn-spark: var(--accent-light);
 	}
 
 	&.transparent {
-		color: var(--text-color-dark);
-		background-color: var(--page-bg);
-		border: 1px solid var(--text-color);
+		--btn-spark: var(--text-color);
+	}
 
-		&:hover {
-			color: var(--text-color);
-			background-color: transparent;
-			border: 1px solid var(--text-color);
+	/* можно подстроить по вкусу */
+
+	/* эмиттеры по краям — высокая полоса */
+	.px-emitter {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		width: 10px;
+		pointer-events: none;
+		z-index: 2;
+	}
+
+	.px-emitter.left {
+		left: 0px;
+	}
+
+	.px-emitter.right {
+		right: -10px;
+	}
+
+	/* сама «искра» */
+	.px {
+		position: absolute;
+		width: 5px;
+		height: 5px;
+		background: var(--btn-spark);
+		opacity: 0;
+		will-change: transform, opacity;
+		image-rendering: pixelated;
+		border-radius: 0;
+		box-shadow: 0 0 0 1px rgba(0, 0, 0, .06) inset;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.px {
+			animation: none !important;
 		}
+	}
+}
+
+/* ключевые кадры — вылет + растворение */
+@keyframes px-fly-left {
+	0% {
+		transform: translateX(0) translateY(0);
+		opacity: 0;
+	}
+
+	10% {
+		opacity: 1;
+	}
+
+	100% {
+		transform: translateX(-15px) translateY(var(--dy, 0));
+		opacity: 0;
+	}
+}
+
+@keyframes px-fly-right {
+	0% {
+		transform: translateX(0) translateY(0);
+		opacity: 0;
+	}
+
+	10% {
+		opacity: 1;
+	}
+
+	100% {
+		transform: translateX(15px) translateY(var(--dy, 0));
+		opacity: 0;
 	}
 }
