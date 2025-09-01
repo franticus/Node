@@ -1,95 +1,171 @@
 .games {
 	font-family: var(--font-accent);
+	width: calc(100% - 80px);
+	max-width: 1600px;
+	margin: 0 auto;
 
-	&__row {
-		display: grid;
-		grid-template-columns: 1.2fr 0.8fr 2fr 1.5fr; // название | релиз | описание | картинки
-		align-items: start;
-		padding: 20px 0;
-		border-top: 1px solid rgba(0, 0, 0, 0.1);
+	& .title__wrapper {
+		margin: 0 auto;
+		margin-bottom: 70px;
+		width: calc(100% - 80px);
+	}
 
-		&:last-child {
-			border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+	&__tags {
+		width: 100%;
+		width: calc(100% - 80px);
+		margin: 0 auto;
+		display: flex;
+		justify-content: flex-end;
+		gap: 10px;
+		margin-bottom: 20px;
+
+		.tag {
+			display: inline-block;
+			align-items: center;
+			padding: 8px 14px;
+			border-radius: 999px;
+			background: var(--accent-light);
+			font-weight: 400;
+			font-size: 16px;
+			line-height: 110%;
+			letter-spacing: -0.04em;
 		}
 	}
 
+	&__row {
+		width: calc(100% - 80px);
+		margin: 0 auto;
+		position: relative;
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		align-items: start;
+	}
+
 	&__name {
+		padding: 20px 0;
+		position: relative;
 		font-family: var(--font-second);
-		font-weight: 600;
-		font-size: 20px;
-		line-height: 120%;
+		font-weight: 400;
+		font-size: 30px;
+		line-height: 80%;
+		color: #0f0f0f;
 	}
 
 	&__release {
+		padding: 20px 0;
+		position: relative;
 		font-size: 14px;
 		line-height: 140%;
 		color: var(--black);
 
 		.label {
 			display: block;
-			font-weight: 600;
+			font-weight: 700;
 			margin-bottom: 4px;
 		}
 
 		.date {
-			color: rgba(0, 0, 0, 0.7);
+			color: rgba(0, 0, 0, .7);
 		}
 	}
 
 	&__description {
+		padding: 20px 0;
 		font-size: 16px;
 		line-height: 130%;
 		color: var(--black);
-		max-width: 500px;
+		max-width: 270px;
 	}
 
 	&__images {
+		padding: 20px 0;
 		display: flex;
 		gap: 10px;
 
 		img {
-			width: 80px;
-			height: 80px;
+			width: 90px;
+			height: 90px;
 			object-fit: cover;
-			border-radius: 4px;
 		}
 	}
 
-	/* Mobile */
-	@media (max-width: 768px) {
+	@include mobile {
+		&__tags {
+			margin: 8px 0 16px 0;
+			/* на мобиле теги под заголовком слева */
+			flex-wrap: wrap;
+		}
+
 		&__row {
-			display: flex;
-			flex-direction: column;
-			gap: 12px;
+			display: grid;
+			grid-template-columns: 1fr auto;
+			/* контент + блок release справа */
+			grid-template-areas:
+				"name    release"
+				"desc    release"
+				"images  images";
+			gap: 12px 16px;
 			padding: 20px 0;
+
+			/* базовая линия */
+			&::before {
+				left: 0;
+				right: 0;
+			}
 		}
 
 		&__name {
+			grid-area: name;
 			font-size: 18px;
+
+			&::before {
+				height: 22px;
+			}
+
+			&::after {
+				height: 22px;
+				right: -36px;
+				width: 36px;
+			}
 		}
 
 		&__release {
-			order: 3; // переносим вниз справа от текста
-			display: flex;
-			justify-content: space-between;
+			grid-area: release;
+			align-self: start;
 			font-size: 12px;
+
+			&::before {
+				left: -8px;
+			}
+
+			/* подстройка стыка */
 		}
 
 		&__description {
-			order: 2;
+			grid-area: desc;
 			font-size: 14px;
 		}
 
 		&__images {
-			order: 4;
-			display: grid;
-			grid-template-columns: repeat(2, 1fr);
+			grid-area: images;
+			display: flex; // горизонтальная линия
 			gap: 8px;
+			overflow-x: auto; // горизонтальный скролл
+			-webkit-overflow-scrolling: touch; // плавный скролл на iOS
+			scrollbar-width: none; // скрыть скроллбар в Firefox
+
+			&::-webkit-scrollbar {
+				display: none;
+			}
+
+			// скрыть скроллбар в Chrome/Safari
 
 			img {
-				width: 100%;
-				height: auto;
-				border-radius: 4px;
+				flex: 0 0 auto; // не сжимать, фикс ширина
+				width: 150px; // можно задать 120–150px для превью
+				height: 100px;
+				object-fit: cover;
+				border-radius: 6px;
 			}
 		}
 	}
