@@ -18,7 +18,9 @@
 		}
 
 		@include mobile {
-			padding: 100px 10px 65px 10px;
+			padding: 55px 10px 0px 10px;
+			background-size: 100% 70%;
+			background-position: 100% 65%;
 		}
 	}
 
@@ -29,6 +31,7 @@
 
 		@include mobile {
 			margin: 40px auto;
+			margin-bottom: 20px;
 		}
 
 		&-left {
@@ -65,7 +68,7 @@
 		transform: translateY(-40px);
 
 		@include mobile {
-			transform: translateY(0px);
+			transform: translateY(-30px);
 		}
 	}
 
