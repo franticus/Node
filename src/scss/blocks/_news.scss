@@ -60,6 +60,7 @@
 			font-weight: 400;
 			font-size: 30px;
 			line-height: 80%;
+			color: #0f0f0f;
 
 			@include tablet_small {
 				font-size: 18px;
@@ -86,7 +87,7 @@
 			}
 
 			@include mobile {
-				height: 160px;
+				height: auto;
 			}
 
 			&.first {

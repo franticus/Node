@@ -18,9 +18,9 @@
 		}
 
 		@include mobile {
-			padding: 45px 10px 10px 10px;
-			background-size: 100% 70%;
-			background-position: 100% 60%;
+			padding: 25px 10px 10px 10px;
+			background-size: 100% 80%;
+			background-position: 100% 40%;
 		}
 	}
 
@@ -123,6 +123,7 @@
 		@include mobile {
 			margin-bottom: 20px;
 			max-width: 270px;
+			font-size: 14px;
 		}
 	}
 }
