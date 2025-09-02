@@ -1,3 +1,4 @@
-# Trickster
+# Node
 
-[Deploy SpinVibe](https://franticus.github.io/Trickster/)
+[Deploy Node](https://franticus.github.io/Node/)
+[Repository link](https://github.com/franticus/Node)
